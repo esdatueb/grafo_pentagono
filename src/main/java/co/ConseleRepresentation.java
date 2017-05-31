@@ -7,6 +7,7 @@ package co;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Stack;
 
 /**
  *
@@ -15,7 +16,8 @@ import java.util.Observer;
 public class ConseleRepresentation implements Observer{
 
     public void update(Observable o, Object arg) {
-        System.out.println("Solo imprime los avances");
+        Stack<Node> stack=(Stack)(arg);
+        System.out.println("Respuesta "+stack);
     }
     
 }

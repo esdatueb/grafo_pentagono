@@ -31,6 +31,8 @@ public class Walker extends Observable{
         System.out.println(postm.getNodos());
         System.out.println(postm.getPaths());
         Walker k = new Walker();
+        ConseleRepresentation console=new ConseleRepresentation();
+        k.addObserver(console);
         k.setInicial(p.getNodos().iterator().next());
         Stack<Node> rta = k.walk(k.getInicial(),null);
         System.out.println(rta);
@@ -70,12 +72,12 @@ public class Walker extends Observable{
             walk(tmp.getDestino(),tmp);
 
         }else if(rta.size()<10 && tmp!=null){
-           // rta.pop();
             if(paths.hasNext())
                 tmp = paths.next();
             walk(tmp.getDestino(),tmp);
         }
-        System.out.println("Rata "+rta);
+        this.setChanged();
+        this.notifyObservers(rta);
         return rta;
     }
 
