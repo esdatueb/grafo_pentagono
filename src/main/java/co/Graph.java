@@ -24,6 +24,8 @@ public class Graph {
         this.paths.add(p);
         this.nodos.add(p.getOrigen());
         this.nodos.add(p.getDestino());
+        p.getOrigen().addPath(p);
+        p.getDestino().addPath(p);
     }
 
     public Set<Node> getNodos() {
@@ -40,5 +42,10 @@ public class Graph {
 
     public void setPaths(ArrayList<Path> paths) {
         this.paths = paths;
+    }
+
+    public void addPaths(ArrayList<Path> paths) {
+        for(Path x:paths)
+            this.addPath(x);
     }
 }

@@ -38,10 +38,5 @@ public class PentagonGraph extends Graph{
         this.addPath(p);
     }
 
-    public static void main(String[] args) {
-        PentagonGraph p=new PentagonGraph("Out");
-        PentagonGraph p2=new PentagonGraph("In");
-        System.out.println(p.getNodos());
-        System.out.println(p.getPaths());
-    }
+
 }
